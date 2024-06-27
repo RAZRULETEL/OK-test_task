@@ -6,9 +6,10 @@ export interface Theme {
     fontColor: string;
 }
 
-interface CounterProps {
+export type CounterSize = 8 | 12 | 16 | 20 | 24;
+export interface CounterProps {
     theme?: 'primary' | 'secondary' | Theme,
-    size?: 8 | 12 | 16 | 20 | 24,
+    size?: CounterSize,
     stroke?: boolean,
     quantity?: string,
     pulse?: boolean,
@@ -25,7 +26,7 @@ const SECONDARY_THEME = {
     fontColor: '#000'
 }
 
-export default function Counter({theme = 'primary', size = 8, stroke = true, quantity = '', pulse = false}: CounterProps) {
+export default function Counter({theme = 'primary', size = 8, stroke = false, quantity = '', pulse = false}: CounterProps) {
     const className = `counter size-${size} ${stroke ? 'stroke' : ''} ${size <= 12 && pulse ? 'pulse' : ''}`
 
     let quantityText = '';
