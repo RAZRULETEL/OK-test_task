@@ -1,17 +1,11 @@
 .counter {
+    --style-color: #37b676;
+    --style-font-color: #FFF;
     border-radius: 100px;
     display: inline-block;
     text-align: center;
-}
-
-.counter.primary {
-    background-color: #37b676;
-    color: white;
-}
-
-.counter.secondary {
-    background-color: #f0edeb;
-    color: black;
+    color: var(--style-font-color);
+    background-color: var(--style-color);
 }
 
 .counter.stroke {
@@ -75,18 +69,13 @@
     animation-duration: 2s;
 }
 
-.counter.pulse.primary::after, .counter.pulse.primary::before {
-    background-color: #37b676;
-}
-
-.counter.pulse.secondary::after, .counter.pulse.secondary::before {
-    background-color: #f0edeb;
+.counter.pulse::after, .counter.pulse::before {
+    background-color: var(--style-color);
 }
 
 .counter.pulse::after {
     animation-delay: 0.25s;
 }
-
 
 @keyframes dot-pulse-scale-fade {
     0% {

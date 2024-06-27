@@ -10,6 +10,7 @@ const meta = {
     },
     tags: ['autodocs'],
     argTypes: {
+        theme: { control: 'radio', options: ['primary', 'secondary']},
         size: { control: {type: 'range', min: 8, max: 24, step: 4}},
     },
 } satisfies Meta<typeof Counter>;
@@ -19,7 +20,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
     args: {
-        isPrimary: true,
+        theme: 'primary',
         quantity: '1',
         size: 16,
     },
@@ -27,7 +28,7 @@ export const Primary: Story = {
 
 export const Secondary: Story = {
     args: {
-        isPrimary: false,
+        theme: 'secondary',
         quantity: '1',
         size: 16,
     },
@@ -35,7 +36,7 @@ export const Secondary: Story = {
 
 export const Pulse: Story = {
     args: {
-        isPrimary: true,
+        theme: 'primary',
         pulse: true,
         size: 12,
     },
