@@ -25,6 +25,7 @@ export const Primary: Story = {
 
 export const Secondary: Story = {
   args: {
+    isPrimary: false,
     label: 'Button',
   },
 };
@@ -56,3 +57,31 @@ export const WithCounter: Story = {
           </Button>
       ),
 };
+
+export const Loading: Story = {
+  args: {
+    isPrimary: false,
+    label: 'Button',
+    state: 'loading',
+  },
+  render: (args) =>
+      (
+          <Button {...args}>
+            <Button.Counter quantity={"123"}/>
+          </Button>
+      ),
+}
+
+export const Disabled: Story = {
+  args: {
+    isPrimary: true,
+    label: 'Button',
+    state: 'disabled',
+  },
+  render: (args) =>
+      (
+          <Button {...args}>
+            <Button.Counter quantity={"1"}/>
+          </Button>
+      ),
+}
