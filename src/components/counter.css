@@ -1,0 +1,105 @@
+.counter {
+    border-radius: 100px;
+    display: inline-block;
+    text-align: center;
+}
+
+.counter.primary {
+    background-color: #37b676;
+    color: white;
+}
+
+.counter.secondary {
+    background-color: #f0edeb;
+    color: black;
+}
+
+.counter.stroke {
+    border-color: white;
+    border-style: solid;
+}
+
+.counter.size-8, .counter::after, .counter::before {
+    width: 8px;
+    height: 8px;
+    border-width: 1px;
+}
+
+.counter.size-12, .counter::after, .counter::before {
+    width: 12px;
+    height: 12px;
+    border-width: 2px;
+}
+
+.counter.size-16 {
+    min-width: 8px;
+    height: 16px;
+    padding: 0 4px;
+    border-width: 2px;
+    font-size: 13.5px;
+}
+
+.counter.size-20 {
+    min-width: 12px;
+    height: 20px;
+    padding: 0 4px;
+    border-width: 2px;
+    font-size: 17px;
+}
+
+.counter.size-24 {
+    min-width: 12px;
+    height: 24px;
+    padding: 0 6px;
+    border-width: 3px;
+    font-size: 20px;
+}
+
+.counter:not(.stroke) {
+    border-width: 0;
+}
+
+.counter.pulse {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.counter.pulse::after, .counter.pulse::before {
+    position: absolute;
+    border-radius: 999px;
+    content: '';
+    animation-name: dot-pulse-scale-fade;
+    animation-iteration-count: infinite;
+    animation-duration: 2s;
+}
+
+.counter.pulse.primary::after, .counter.pulse.primary::before {
+    background-color: #37b676;
+}
+
+.counter.pulse.secondary::after, .counter.pulse.secondary::before {
+    background-color: #f0edeb;
+}
+
+.counter.pulse::after {
+    animation-delay: 0.25s;
+}
+
+
+@keyframes dot-pulse-scale-fade {
+    0% {
+        opacity: 0.2;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0;
+        transform: scale(3);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(3);
+    }
+}
