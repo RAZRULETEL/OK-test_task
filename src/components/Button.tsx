@@ -17,15 +17,16 @@ const PrimaryCounterTheme: Theme = {
     fontColor: '#fff'
 };
 
-const ButtonContext = React.createContext<[CounterSize, Theme]>([20, PrimaryCounterTheme]);
-
+const DEFAULT_BUTTON_SIZE = 36;
 const ButtonToCounterSize: {[key in ButtonSize]: CounterSize} = {
     28: 16,
     36: 20,
     56: 24
 }
 
-function Button({label = 'Button', isPrimary = true, size = 36, state = 'enabled', onMouseDown, children, ...settings}: ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>) {
+const ButtonContext = React.createContext<[CounterSize, Theme]>([ButtonToCounterSize[DEFAULT_BUTTON_SIZE], PrimaryCounterTheme]);
+
+function Button({label = 'Button', isPrimary = true, size = DEFAULT_BUTTON_SIZE, state = 'enabled', onMouseDown, children, ...settings}: ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>) {
     const ripple = React.createRef<HTMLDivElement>();
 
     const className = `custom-button size-${size} ${isPrimary ? 'primary' : 'secondary'} ${state === 'loading' ? 'loading' : ''}`;
@@ -35,7 +36,6 @@ function Button({label = 'Button', isPrimary = true, size = 36, state = 'enabled
         backgroundColor: '#e3ddd9',
         fontColor: '#000'
     };
-    console.log(settings);
     return (
         <button
             className={className}
